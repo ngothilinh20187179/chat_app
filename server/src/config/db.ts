@@ -1,8 +1,6 @@
 import mongoose from "mongoose";
-import dotenv from "dotenv";
-dotenv.config();
-
-const mongo_uri = process.env.MONGODB_ATLAS_URI;
+import { config } from "./env";
+const mongo_uri = config.mongoURI;
 
 export const connectDB = async () => {
     try {

@@ -41,7 +41,18 @@ Backend Setup
 ```bash
 cd server
 npm install
-# Create .env & Add your MongoDB connection string to .env file(MONGODB_URI="...")
+```
+
+Setup .env file
+```bash
+MONGODB_ATLAS_URI=...
+PORT=3000
+NODE_ENV="development"
+JWT_SECRET=...
+TOKEN_EXPIRATION = "1d"
+```
+
+```bash
 npm run dev
 ```
 
@@ -79,7 +90,11 @@ npx tsc --init
 ```
 Create an .env file in the server directory to store the environment variables:
 ```bash
-MONGO_URI="..."
+MONGODB_ATLAS_URI=...
+PORT=3000
+NODE_ENV="development"
+JWT_SECRET=...
+TOKEN_EXPIRATION = '1d'
 ```
 
 package.json

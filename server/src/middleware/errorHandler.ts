@@ -1,5 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
-import { IErrorResponse } from '../types';
+import { IErrorResponse } from '../types/response';
+import { config } from '../config/env';
 /**
  * @description Global Error Handler Middleware.
  */
@@ -20,7 +21,7 @@ export const errorHandler = (
         message,
         error: errorName,
         timestamp: new Date().toISOString(),
-        stack: process.env.NODE_ENV === 'production' ? null : err.stack
+        stack: config.nodeEnv === 'production' ? null : err.stack
     };
 
     res.status(statusCode).json(errorResponse);

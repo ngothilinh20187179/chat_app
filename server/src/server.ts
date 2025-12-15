@@ -1,14 +1,12 @@
 import { createServer } from 'http';
-import dotenv from 'dotenv';
 import { connectDB } from './config/db';
 import router from './routes/index';
 import express, { Request, Response, NextFunction } from 'express';
 import createError from 'http-errors';
 import { errorHandler } from './middleware/errorHandler';
+import { config } from './config/env';
 
-
-dotenv.config();
-const PORT = process.env.PORT || 5000;
+const PORT = config.port;
 
 connectDB();
 
