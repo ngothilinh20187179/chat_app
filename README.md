@@ -8,8 +8,6 @@ A real-time chat application built using the MERN stack and Socket.IO to handle 
 - User Management
 - Room/Chat Management
 
-## Demo
-
 ## 🛠️ Tech Stack
 
 Frontend
@@ -23,11 +21,27 @@ Backend
 - MongoDB and Mongoose
 - Socket.IO
 
+## Test Demo (BE - postman)
+- Postman: 
+++ login 2 user (e.g User0, User1)
+++ connect socket  2 user (e.g User0, User1) (add access token when connect)
+++ add event: receiveMessage (User0), sendMessage (User1)
+++ send message (User1 send to User0): 
+```bash
+# Tab Message - Postman
+{
+  "recipientId": "6942b70c32cfbfed236de792", 
+  "content": "Hi Linh, I'm Linh1"
+}
+```
+++ check receiveMessage in User0
+
 ## 🚀 Quick Start
 
 ### Prerequisites
 - Node.js
 - MongoDB
+- Understanding the basics of Socket.io (Handshake, Connection, Emit & Listen), jsonwebtoken.
 
 ### Installation & Run
 
