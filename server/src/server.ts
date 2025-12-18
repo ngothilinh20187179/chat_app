@@ -5,6 +5,9 @@ import express, { Request, Response, NextFunction } from 'express';
 import createError from 'http-errors';
 import { errorHandler } from './middleware/errorHandler';
 import { config } from './config/env';
+import { Server } from 'socket.io';
+import { chatHandler } from './socket/chatHandler';
+import { socketProtect } from './middleware/socket';
 
 const PORT = config.port;
 
@@ -29,6 +32,11 @@ app.use(errorHandler);
 
 
 const httpServer = createServer(app);
+
+const io = new Server(httpServer, { cors: { origin: '*' } });
+io.use(socketProtect);
+chatHandler(io);
+
 httpServer.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });

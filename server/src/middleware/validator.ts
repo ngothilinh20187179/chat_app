@@ -19,6 +19,9 @@ export const validateRequest = (schema: ObjectSchema) => {
     };
 }
 
+/**
+ * Middleware to protect routes and ensure the user is authenticated
+ */
 export const protectRoute = (req: Request, res: Response, next: NextFunction): void => {
     try {
         const authHeader = req.headers.authorization;
@@ -38,8 +41,9 @@ export const protectRoute = (req: Request, res: Response, next: NextFunction): v
         }
 
         req.user = decoded;
+        next();
 
     } catch (error) {
-        next(createError.InternalServerError('Authentication error'));
+        next(error);
     }
 }
