@@ -36,8 +36,9 @@ export const verifyToken = (token: string): CustomJwtPayload | null => {
         const decoded = jwt.verify(token, jwtSecret) as CustomJwtPayload;
         return decoded;
     } catch (error) {
-        if (error instanceof TokenExpiredError) return null;
-        if (error instanceof JsonWebTokenError) return null;
-        throw error;
+        // if (error instanceof TokenExpiredError) return null;
+        // if (error instanceof JsonWebTokenError) return null;
+        // throw error;
+        return null;
     }
 }

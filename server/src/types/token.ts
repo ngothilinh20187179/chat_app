@@ -5,3 +5,11 @@ export interface CustomJwtPayload extends JwtPayload {
     username: string;
     email: string;
 }
+
+declare global {
+    namespace Express {
+        interface Request {
+            user?: CustomJwtPayload;
+        }
+    }
+}
