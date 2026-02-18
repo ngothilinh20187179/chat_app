@@ -8,13 +8,23 @@ import { config } from './config/env';
 import { Server } from 'socket.io';
 import { chatHandler } from './socket/chatHandler';
 import { socketProtect } from './middleware/socket';
+import cors from 'cors';
 
 const PORT = config.port;
+const FRONTEND_URL = config.frontendUrl;
 
 connectDB();
 
 const app = express();
 // app.listen() - REST APIs (non-real-time) -> use httpServer
+
+// CORS - Express (REST API)
+app.use(cors({
+    origin: FRONTEND_URL,
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    credentials: true
+}));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

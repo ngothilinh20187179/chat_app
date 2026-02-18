@@ -7,6 +7,7 @@ export const config = {
     jwtSecret: process.env.JWT_SECRET,
     nodeEnv: process.env.NODE_ENV || 'development',
     tokenExpiration: process.env.TOKEN_EXPIRATION || '1d',
+    frontendUrl: process.env.FRONTEND_URL || 'http://localhost:5173',
 
     validate: () => {
         if (!config.mongoURI) {
