@@ -106,6 +106,7 @@ Create an .env file in the server directory to store the environment variables:
 ```bash
 MONGODB_ATLAS_URI=...
 PORT=3000
+FRONTEND_URL=...
 NODE_ENV="development"
 JWT_SECRET=...
 TOKEN_EXPIRATION = '1d'
@@ -140,6 +141,7 @@ Install Dependencies
 ```bash
 npm install redux react-redux @reduxjs/toolkit socket.io-client
 npm install tailwindcss @tailwindcss/vite
+npm install axios
 ```
 
 index.css # global style
@@ -147,6 +149,7 @@ index.css # global style
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import "tailwindcss";
 ```
 
 vite.config.ts
@@ -161,11 +164,6 @@ export default defineConfig({
     react(),
     tailwindcss()],
 })
-```
-
-Before use:
-```bash
-import "tailwindcss";
 ```
 
 Run Client
