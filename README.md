@@ -3,10 +3,10 @@
 ## 🎯 Overview
 A real-time chat application built using the MERN stack and Socket.IO to handle bidirectional communication.
 
-✨ Core Features
-- Real-time Messaging
-- User Management
-- Room/Chat Management
+Demo video
+
+https://github.com/user-attachments/assets/cf717ad5-122a-4987-be70-c5acef14dfde
+
 
 ## 🛠️ Tech Stack
 
