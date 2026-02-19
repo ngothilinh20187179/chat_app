@@ -3,7 +3,20 @@
 ## 🎯 Overview
 A real-time chat application built using the MERN stack and Socket.IO to handle bidirectional communication.
 
-Demo video
+## 🚀 Live Demo
+
+You can try the live version of the application here:
+
+- **Backend API:** [https://chat-app-backend-1mej.onrender.com/]
+- **Frontend:** [https://chat-app-frontend-xi-ten.vercel.app/]
+
+**⚠️ Important Note: Cold Start (Warm-up)**
+
+This project is hosted on **Render's free tier**, which means the backend server automatically "sleeps" after 15 minutes of inactivity. 
+- **First Load Delay:** When you first access the app or send a message after a long break, it might take **30-60 seconds** for the server to "wake up". 
+- **Socket Connection:** You might see a connection error initially; please wait a moment and refresh the page if necessary.
+
+Your patience is appreciated while the free hosting spins up!
 
 https://github.com/user-attachments/assets/cf717ad5-122a-4987-be70-c5acef14dfde
 
@@ -12,7 +25,6 @@ https://github.com/user-attachments/assets/cf717ad5-122a-4987-be70-c5acef14dfde
 
 Frontend
 - React, Typescript
-- Redux
 - Tailwind CSS
 - Socket.IO
 
