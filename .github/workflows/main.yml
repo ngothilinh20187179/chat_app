@@ -1,0 +1,50 @@
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  server-ci:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: server/package-lock.json
+
+      - name: Install & Build Server
+        run: |
+          cd server
+          npm install
+          npx tsc --noEmit
+
+  client-ci:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: client/package-lock.json 
+
+      - name: Install & Build Client
+        run: |
+          cd client
+          npm install
+          npm run build
+
+  deploy:
+    needs: [server-ci, client-ci]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy Backend to Render
+        run: curl -X POST ${{ secrets.RENDER_DEPLOY_HOOK }}
+
+      - name: Deploy Frontend to Vercel
+        run: curl -X POST ${{ secrets.VERCEL_DEPLOY_HOOK }}
