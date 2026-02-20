@@ -40,7 +40,7 @@ function App() {
 
   return (
     <div className="flex flex-col h-screen w-full bg-gray-100">
-      <h1 className="text-center py-2 text-2xl font-bold text-black border-b">Chat App</h1>
+      <h1 className="text-center py-2 text-2xl font-bold text-black border-b">Welcome to my Chat App</h1>
       {show && (
         <button
           onClick={handleLoginAll}
